@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-  createBoard(16);
+  createBoard(50);
 }) 
+
+let board = document.querySelector(".board");
 
 //Creating board with square divs
 function createBoard(size){
-  let board = document.querySelector(".board");
-
   board.style.gridTemplateColumns = `repeat(${size} , 1fr)`;
   board.style.gridTemplateRows = `repeat(${size} , 1fr)`;
 
@@ -25,12 +25,18 @@ function createBoard(size){
 //Changing input from default value
 let slider = document.querySelector("#size");
 slider.oninput = function() {
+  eraseBoard();
   createBoard(this.value);
 }
 
-//Erasing board with Reset Button
-let resetBtn = document.querySelector("#rBtn");
-resetBtn.addEventListener("click", () => {
-    window.location.reload();
-    return false
-})
+//Erasing board with Clear Button
+let clearBtn = document.querySelector("#cBtn");
+clearBtn.addEventListener("click", eraseBoard);
+function eraseBoard() {
+    while (board.firstChild) {
+      board.removeChild(board.firstChild);
+    }
+    createBoard(`${slider.value}`);
+}
+
+
