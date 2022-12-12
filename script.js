@@ -13,10 +13,14 @@ function createBoard(size){
 
   for(i = 0; i < numDivs; i++) {
     let div = document.createElement("div");
+    let setSize = document.querySelector("#sizeBtn");
     div.addEventListener("mouseover", () => {
         div.style.backgroundColor = "black";
     })
     board.insertAdjacentElement("beforeend",div);
+    setSize.addEventListener("click", () => {
+        div.style.backgroundColor = "white";
+    })
   }
   
 }
@@ -26,3 +30,9 @@ function changeSize(input) {
     createBoard(input);
 }
 
+//Erasing board with Reset Button
+let resetBtn = document.querySelector("#rBtn");
+resetBtn.addEventListener("click", () => {
+    window.location.reload();
+    return false;
+})
