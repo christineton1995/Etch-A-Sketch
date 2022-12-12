@@ -22,9 +22,10 @@ function createBoard(size){
   
 }
 
-//Changing size upon input
-function changeSize(input) {
-    createBoard(input);
+//Changing input from default value
+let slider = document.querySelector("#size");
+slider.oninput = function() {
+  createBoard(this.value);
 }
 
 //Erasing board with Reset Button
