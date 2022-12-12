@@ -18,9 +18,6 @@ function createBoard(size){
         div.style.backgroundColor = "black";
     })
     board.insertAdjacentElement("beforeend",div);
-    setSize.addEventListener("click", () => {
-        div.style.backgroundColor = "white";
-    })
   }
   
 }
@@ -34,5 +31,5 @@ function changeSize(input) {
 let resetBtn = document.querySelector("#rBtn");
 resetBtn.addEventListener("click", () => {
     window.location.reload();
-    return false;
+    return false
 })
