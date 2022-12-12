@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   createBoard(16);
 }) 
 
+//Creating board with square divs
 function createBoard(size){
   let board = document.querySelector(".board");
 
@@ -12,8 +13,16 @@ function createBoard(size){
 
   for(i = 0; i < numDivs; i++) {
     let div = document.createElement("div");
-    div.style.backgroundColor = "yellow";
+    div.addEventListener("mouseover", () => {
+        div.style.backgroundColor = "black";
+    })
     board.insertAdjacentElement("beforeend",div);
   }
   
 }
+
+//Changing size upon input
+function changeSize(input) {
+    createBoard(input);
+}
+
