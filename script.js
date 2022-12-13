@@ -63,3 +63,4 @@ function eraseBoard() {
     createBoard(`${slider.value}`);
 }
 
+
