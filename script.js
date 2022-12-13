@@ -1,3 +1,7 @@
+
+//Setting default drawing color
+let color = 'black';
+
 document.addEventListener("DOMContentLoaded", function () {
   createBoard(50);
 }) 
@@ -11,15 +15,27 @@ function createBoard(size){
 
   let numDivs = size * size;
 
+//Drawing on board
   for(i = 0; i < numDivs; i++) {
     let div = document.createElement("div");
     let setSize = document.querySelector("#sizeBtn");
-    div.addEventListener("mouseover", () => {
-        div.style.backgroundColor = "black";
-    })
+    div.addEventListener("mouseover", colorDiv);
     board.insertAdjacentElement("beforeend",div);
   }
   
+}
+
+//Adding functionality to Black, and Random buttons
+function colorDiv(){
+  if (color === "random") {
+    this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+  } else {
+    this.style.backgroundColor = 'black'
+  }
+}
+
+function setColor(colorChoice){
+   color = colorChoice; 
 }
 
 //Changing input from default value
@@ -38,5 +54,4 @@ function eraseBoard() {
     }
     createBoard(`${slider.value}`);
 }
-
 
