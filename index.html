@@ -10,19 +10,20 @@
 <body>
   <div= class = "flex-container">
     <div class ="title"><h1>Etch-A-Sketch</h1></div>
-    <div class="content"></div>
-      <div class="board"></div>
+    <div class="content">
       <div class="buttons">
         <button id ="bBtn" onclick="setColor('black')">Black</button>
         <button id ="rBtn" onclick="setColor('random')">Rainbow</button>
         <button id ="eBtn" onclick="setColor('white')">Eraser</button>
         <button id ="cBtn">Clear</button>
       </div>
-      <div>
+      <div class="board"></div>
+    </div>   
+      <div class ="toggle">
         <input id ="size" type="range" min="5" max="100" value = "50"/>
         <label for="size">Size</label>
       </div>
-      
+     
   </div>
 </body>
 <script src="script.js"></script>
