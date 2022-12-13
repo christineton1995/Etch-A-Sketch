@@ -1,9 +1,17 @@
 
 //Setting default drawing color
 let color = 'black';
+let click = false;
 
 document.addEventListener("DOMContentLoaded", function () {
   createBoard(50);
+
+//Click to draw, and unclick to stop drawing
+document.querySelector("body").addEventListener("click", (e) => {
+  if (e.target.tagname != "BUTTON") {
+  click = !click;
+  }
+})
 }) 
 
 let board = document.querySelector(".board");
@@ -27,13 +35,13 @@ function createBoard(size){
 
 //Adding functionality to Black, and Random buttons
 function colorDiv(){
+  if (click){
   if (color === "random") {
     this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
-  } else if (color === "white") {
-    this.style.backgroundColor = "white";
   }else {
-    this.style.backgroundColor = 'black'
+    this.style.backgroundColor = color;
   }
+ }
 }
 
 function setColor(colorChoice){
