@@ -7,10 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   createBoard(50);
 
 //Click to draw, and unclick to stop drawing
-document.querySelector("body").addEventListener("click", (e) => {
-  if (e.target.tagname != "BUTTON") {
+document.querySelector(".board").addEventListener("click", (e) => {
   click = !click;
-  }
 })
 }) 
 
